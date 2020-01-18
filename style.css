@@ -13,10 +13,54 @@ body {
     font-weight: normal;
 }
 
-.content {
+#repos {
+    width: 70%;
+    height: 70%;
+
+    overflow: auto;
+}
+
+.arrow {
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+
+    border-top: 4px solid #fff;
+    border-right: 4px solid #fff;
+
+    -webkit-transition: opacity 0.3s ease-in-out;
+       -moz-transition: opacity 0.3s ease-in-out;
+        -ms-transition: opacity 0.3s ease-in-out;
+         -o-transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+}
+
+.arrow:hover {
+    opacity: 60%;
+    cursor: pointer;
+}
+
+.arrow-top {
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+}
+
+.arrow-bottom {
+    -webkit-transform: rotate(135deg);
+       -moz-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+         -o-transform: rotate(135deg);
+            transform: rotate(135deg);
+}
+
+.page {
 	width: 90%;
     height: 80%;
-    background-color: inherit;
+    background: rgba(0, 0, 0, 0);
 	
     position: absolute;
     
@@ -42,4 +86,11 @@ body {
     flex-direction: column;
 
     line-height: 10px;
+    opacity: 0%;
+
+    -webkit-transition: opacity 1s ease-in-out;
+       -moz-transition: opacity 1s ease-in-out;
+        -ms-transition: opacity 1s ease-in-out;
+         -o-transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out;
 }
