@@ -1,9 +1,36 @@
 var currentPage = 0;
 
 window.onload = function() {
-    this.fetch("https://api.github.com/users/dskprt").then(response => {
+    this.fetch("https://api.github.com/users/dskprt/repos").then(response => {
         response.json().then(json => {
-            document.getElementById("bio").innerText = json.bio;
+            for(var i = 0; i < json.length; i++) {
+                var name = json[i].name;
+                var private = json[i].private;
+                var url = json[i].html_url;
+                var desc = json[i].description || "";
+                var lang = json[i].language || "";
+                var license = json[i].license || "";
+
+                if(private) {
+                    return;
+                }
+
+                const div = document.createElement("div");
+                div.className = "page";
+                div.id = "repo";
+                div.innerHTML = `
+                <span onclick="previous()" class="arrow arrow-top"></span>
+                <a href="${url}" target="_blank" style="color: inherit; text-decoration: none;">
+                    <div>
+                        <h1>${name}</h1><small>${license.name || ""}</small>
+                        <h4 style="font-weight: normal;">${desc}</h4>
+                        <small>${lang}</small>
+                    </div>
+                </a>
+                <span onclick="next()" class="arrow arrow-bottom"></span>`;
+
+                document.body.insertBefore(div, document.body.firstChild);
+            }
         });
     });
 

@@ -20,6 +20,11 @@ body {
     overflow: auto;
 }
 
+#repo {
+    width: 70%;
+    height: 70%;
+}
+
 .arrow {
     display: inline-block;
 
