@@ -10,6 +10,7 @@ window.onload = function() {
                 var desc = json[i].description || "";
                 var lang = json[i].language || "";
                 var license = json[i].license || "";
+		var homepage = json[i].homepage;
 
                 if(private) {
                     return;
@@ -20,7 +21,7 @@ window.onload = function() {
                 div.id = "repo";
                 div.innerHTML = `
                 <span onclick="previous()" class="arrow arrow-top"></span>
-                <a href="${url}" target="_blank" style="color: inherit; text-decoration: none;">
+                <a href="${homepage || url}" target="_blank" style="color: inherit; text-decoration: none;">
                     <div>
                         <h1>${name}</h1><small>${license.name || ""}</small>
                         <h4 style="font-weight: normal;">${desc}</h4>
